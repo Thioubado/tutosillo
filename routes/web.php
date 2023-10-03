@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('1', function () {
     return 'Je suis la page 1 !';
@@ -45,3 +45,22 @@ Route::get('{n}', function ($n) {
 Route::get('7', function () {
     return "Je suis la page d'accueil";
 })->name('7');
+
+// Les vues
+Route::get('/', function () {
+    return view('vue1');
+});
+
+// Les vues paramétrées
+// Route::get('article/{n}', function ($n) {
+//     return view('article')->with('numero', $n);
+// })-> where('n', '[1-9]+');
+
+// Transmettre un tableau comme paramètre
+Route::get('article/{n}', function ($n) {
+    return view('article', ['numero' => $n]);
+})->where('n', '[1-9]+');
+
+Route::get('facture/{n}', function ($n) {
+    return view('facture')->withNumero($n);
+})->where('n', '[0-9]+');
