@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,54 +15,59 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
+// Creation de route avec le controller
+Route::get('/', [WelcomeController::class, 'index']);
+
+Route::get('article/{n}', [ArticleController::class, 'show']) -> where('n', '[0-9]+');
+
+
+
+
+
+// Route::get('1', function () {
+//     return 'Je suis la page 1 !';
 // });
 
-Route::get('1', function () {
-    return 'Je suis la page 1 !';
-});
+// Route::get('2', function () {
+//     return 'Je suis la page 2 !';
+// });
 
-Route::get('2', function () {
-    return 'Je suis la page 2 !';
-});
+// Route::get('3', function () {
+//     return 'Je suis la page 3 !';
+// });
 
-Route::get('3', function () {
-    return 'Je suis la page 3 !';
-});
+// // On peut utiliser un paramètre pour une route qui accepte des éléments variables en utilisant des accolades
 
-// On peut utiliser un paramètre pour une route qui accepte des éléments variables en utilisant des accolades
+// /* ce code accepte tous les parametres
+// Route::get('{n}', function ($n) {
+//     return 'Je suis la page ' .$n. ' !';
+// });
+// */
+// // parametre avec expression régulière
+// Route::get('{n}', function ($n) {
+//     return 'Je suis la page ' .$n. ' !';
+// })->where('n', '[1-3]');
 
-/* ce code accepte tous les parametres
-Route::get('{n}', function ($n) {
-    return 'Je suis la page ' .$n. ' !';
-});
-*/
-// parametre avec expression régulière
-Route::get('{n}', function ($n) {
-    return 'Je suis la page ' .$n. ' !';
-})->where('n', '[1-3]');
+// // Route nommée
+// Route::get('7', function () {
+//     return "Je suis la page d'accueil";
+// })->name('7');
 
-// Route nommée
-Route::get('7', function () {
-    return "Je suis la page d'accueil";
-})->name('7');
+// // Les vues
+// Route::get('/', function () {
+//     return view('vue1');
+// });
 
-// Les vues
-Route::get('/', function () {
-    return view('vue1');
-});
+// // Les vues paramétrées
+// // Route::get('article/{n}', function ($n) {
+// //     return view('article')->with('numero', $n);
+// // })-> where('n', '[1-9]+');
 
-// Les vues paramétrées
+// // Transmettre un tableau comme paramètre
 // Route::get('article/{n}', function ($n) {
-//     return view('article')->with('numero', $n);
-// })-> where('n', '[1-9]+');
+//     return view('article', ['numero' => $n]);
+// })->where('n', '[1-9]+');
 
-// Transmettre un tableau comme paramètre
-Route::get('article/{n}', function ($n) {
-    return view('article', ['numero' => $n]);
-})->where('n', '[1-9]+');
-
-Route::get('facture/{n}', function ($n) {
-    return view('facture')->withNumero($n);
-})->where('n', '[0-9]+');
+// Route::get('facture/{n}', function ($n) {
+//     return view('facture')->withNumero($n);
+// })->where('n', '[0-9]+');
