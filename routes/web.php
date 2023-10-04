@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * (ɔ) Mo & GrCOTE7 - 2022-2023
+ */
+
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -13,16 +17,13 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
+ */
 
 // Creation de route avec le controller
 Route::get('/', [WelcomeController::class, 'index']);
 
-Route::get('article/{n}', [ArticleController::class, 'show']) -> where('n', '[0-9]+');
-
-
-
-
+Route::get('article/{n}', [ArticleController::class, 'show'])
+	->where('n', '[0-9]+');
 
 // Route::get('1', function () {
 //     return 'Je suis la page 1 !';
