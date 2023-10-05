@@ -5,6 +5,7 @@
  */
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,8 +23,11 @@ use Illuminate\Support\Facades\Route;
 // Creation de route avec le controller
 Route::get('/', [WelcomeController::class, 'index']);
 
-Route::get('article/{n}', [ArticleController::class, 'show'])
-	->where('n', '[0-9]{2}'); // For only have article from 0 to 99
+Route::get('article/{n}', [ArticleController::class, 'show']) -> where('n', '[0-9]+');
+
+
+
+
 
 // Route::get('1', function () {
 //     return 'Je suis la page 1 !';
