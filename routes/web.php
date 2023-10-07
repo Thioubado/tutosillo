@@ -23,21 +23,8 @@ use Illuminate\Support\Facades\Route;
 // Creation de route avec le controller
 Route::get('/', [WelcomeController::class, 'index']);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-Route::get('article/{n}', [ArticleController::class, 'show']) -> where('n', '[0-9]+');
-
-
-
-
-=======
 Route::get('article/{n}', [ArticleController::class, 'show'])
 	->where('n', '[0-9]{2}'); // For only have article from 0 to 99
->>>>>>> 6176d53173dbdf5cc7b1b68bb22fa455044bddce
-=======
-Route::get('article/{n}', [ArticleController::class, 'show'])
-	->where('n', '[0-9]{2}'); // For only have article from 0 to 99
->>>>>>> 6176d53173dbdf5cc7b1b68bb22fa455044bddce
 
 // Route::get('1', function () {
 //     return 'Je suis la page 1 !';
