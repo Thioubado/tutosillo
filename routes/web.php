@@ -5,6 +5,7 @@
  */
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
@@ -19,6 +20,12 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
  */
+
+ // Cours Laravel 10 – les bases – la validation
+ Route::get('contact', [ContactController::class, 'create']);
+ Route::post('contact', [ContactController::class, 'store']);
+
+
 
 // Creation de route avec le controller
 Route::get('/', [WelcomeController::class, 'index']);
