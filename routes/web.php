@@ -21,6 +21,14 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+ Route::get('/test-contact', function () {
+    return new App\Mail\Contact([
+      'nom' => 'Durand',
+      'email' => 'durand@chezlui.com',
+      'message' => 'Je voulais vous dire que votre site est magnifique !'
+      ]);
+});
+
  // Cours Laravel 10 – les bases – la validation
  Route::get('contact', [ContactController::class, 'create']);
  Route::post('contact', [ContactController::class, 'store']);
