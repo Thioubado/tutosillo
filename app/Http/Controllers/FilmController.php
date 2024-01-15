@@ -14,7 +14,7 @@ class FilmController extends Controller
     public function index()
     {
         //
-        $films = Film::all();
+        $films = Film::paginate(5);
         return View('lessonfilms.index', compact('films'));
     }
 
@@ -37,9 +37,10 @@ class FilmController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Film $film)
     {
         //
+        return view('lessonfilms.show', compact('film'));
     }
 
     /**
@@ -61,8 +62,10 @@ class FilmController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Film $film)
     {
         //
+        $film ->delete();
+        return back()->with('info', 'Le film a bien été supprimé dans la base de données.');
     }
 }
