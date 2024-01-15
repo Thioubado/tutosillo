@@ -7,6 +7,7 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\FilmController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\WelcomeController;
@@ -22,6 +23,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
  */
+
+ // Cours Laravel 10 – les données – les ressources (1/2)
+  Route::resource('films', FilmController::class);
+
+ //
 Route::get('contacts', [ContactsController::class, 'create'])->name('contacts.create');
 Route::post('contacts', [ContactsController::class, 'store'])->name('contacts.store');
 
