@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Film;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Http\Request;
+use App\Http\Requests\FilmRequest;
+use Illuminate\Http\RedirectResponse;
 
 class FilmController extends Controller
 {
@@ -14,8 +16,8 @@ class FilmController extends Controller
     public function index()
     {
         //
-        $films = Film::paginate(5);
-        return View('lessonfilms.index', compact('films'));
+        $films = Film::withTrashed() -> oldest('title') -> paginate(5);
+        return view('lessonfilms.index', compact('films'));
     }
 
     /**
@@ -24,14 +26,17 @@ class FilmController extends Controller
     public function create()
     {
         //
+        return view('lessonfilms.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(FilmRequest $filmRequest) : RedirectResponse
     {
         //
+        Film::create($filmRequest->all());
+        return redirect()->route('films.index')->with('info', 'Le film a bien été créé');
     }
 
     /**
@@ -46,17 +51,21 @@ class FilmController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Film $film) : View
     {
         //
+        return view('lessonfilms.edit', compact('film'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(FilmRequest $filmRequest, Film $film) : RedirectResponse
     {
         //
+        $film->update($filmRequest->all());
+        return redirect()->route('films.index')->with('info', 'Le film a bien été modifié');
+
     }
 
     /**
@@ -66,6 +75,20 @@ class FilmController extends Controller
     {
         //
         $film ->delete();
-        return back()->with('info', 'Le film a bien été supprimé dans la base de données.');
+        return back()->with('info', 'Le film a bien été mis dans la corbeille.');
+    }
+
+    public function forceDestroy($id) : RedirectResponse
+    {
+        Film::withTrashed()->whereId($id)->firstOrFail()->forceDelete();
+
+        return back()->with('info', 'Le film a bien été supprimé définitivement dans la base de données.');
+    }
+
+    public function restore($id) : RedirectResponse
+    {
+        Film::withTrashed()->whereId($id)->firstOrFail()->restore();
+
+        return back()->with('info', 'Le film a bien été restauré.');
     }
 }

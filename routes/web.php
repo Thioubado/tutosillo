@@ -24,6 +24,11 @@ use Illuminate\Support\Facades\Route;
 |
  */
 
+ // ajout des routes de suppression
+ Route::controller(FilmController::class)->group(function(){
+  Route::delete('films/force/{film}', 'forceDestroy')->name('films.force.destroy');
+  Route::put('films/restore/{film}', 'restore')->name('films.restore');
+ });
  // Cours Laravel 10 – les données – les ressources (1/2)
   Route::resource('films', FilmController::class);
 
