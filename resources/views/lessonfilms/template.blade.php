@@ -6,7 +6,13 @@
     <title>Films</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     @yield('css')
-
+    @vite([
+        './resources/css/app.scss',
+        // './public/assets/css/semantic.min.css',
+        // './public/assets/js/jquery363.min.js',
+        // './public/assets/js/semantic.min.js',
+        'resources/js/app.js'
+    ])
   </head>
   <body>
     <main class="section">
