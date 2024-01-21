@@ -12,7 +12,7 @@
         }
     </style>
 @endsection
-        
+
 @section('content')
 @if(session()->has('info'))
         <div class="notification is-success">
@@ -29,7 +29,7 @@
                 <table class="table-is-hoverable">
                     <thead>
                         <tr>
-                            
+
                             <th>Titre</th>
                             <th></th>
                             <th></th>
