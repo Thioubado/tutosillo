@@ -14,7 +14,7 @@ class Category extends Model
 {
 	use HasFactory;
 
-	public function film(): HasMany
+	public function films(): HasMany
 	{
 		return $this->hasMany(Film::class);
 	}

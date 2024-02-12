@@ -15,6 +15,7 @@ class Film extends Model
         'title',
         'year',
         'description',
+        'category_id',
     ];
 
     public function category():BelongsTo

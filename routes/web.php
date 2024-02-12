@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Route;
  Route::controller(FilmController::class)->group(function(){
   Route::delete('films/force/{film}', 'forceDestroy')->name('films.force.destroy');
   Route::put('films/restore/{film}', 'restore')->name('films.restore');
+  Route::get('category/{slug}/films', 'index')->name('films.category');
  });
  // Cours Laravel 10 – les données – les ressources (1/2)
   Route::resource('films', FilmController::class);

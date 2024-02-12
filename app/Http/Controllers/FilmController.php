@@ -6,18 +6,24 @@ use App\Models\Film;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Requests\FilmRequest;
+use App\Models\Category;
 use Illuminate\Http\RedirectResponse;
+use App\Http\Controllers\Controller;
 
 class FilmController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($slug = null): View
     {
-        //
-        $films = Film::withTrashed() -> oldest('title') -> paginate(5);
-        return view('lessonfilms.index', compact('films'));
+        $query = $slug ? Category::whereSlug($slug)->firstOrFail()->films() : Film::query();
+        $films = $query->withTrashed()->oldest('title')->paginate(5);
+        //$categories = Category::all();
+        //return view('lessonfilms.index', compact('films', 'categories', 'slug'));
+        //cette partie ci-dessous est pour la view composer
+        return view('lessonfilms.index', compact('films', 'slug'));
+
     }
 
     /**
@@ -26,6 +32,9 @@ class FilmController extends Controller
     public function create()
     {
         //
+        //$categories = Category::all();
+        //return view('lessonfilms.create', compact('categories'));
+        //cette partie ci-dessous est pour la view composer
         return view('lessonfilms.create');
     }
 
@@ -45,7 +54,8 @@ class FilmController extends Controller
     public function show(Film $film)
     {
         //
-        return view('lessonfilms.show', compact('film'));
+        $category = $film ->category->name;
+        return view('lessonfilms.show', compact('film', 'category'));
     }
 
     /**
