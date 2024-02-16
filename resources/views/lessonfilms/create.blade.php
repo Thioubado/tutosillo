@@ -6,6 +6,17 @@
             <p class="card-header-title">Création d'un film</p>
         </header>
 
+        <label class="label">Catégories</label>
+        <div class="select is-multiple">
+            <select name="cats[]" multiple>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}" {{ in_array($category->id, old('cats') ?: []) ? 'selected' : '' }}>
+                        {{ $category->name }}
+                    </option>
+                @endforeach
+            </select>
+        </div>
+
         <div class="card-content">
             <div class="content">
                 <form action="{{ route('films.store') }}" method="POST">
