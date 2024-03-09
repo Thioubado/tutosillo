@@ -8,8 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-
-
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class Film extends Model
 {
@@ -27,8 +26,17 @@ class Film extends Model
     //     return $this->belongsTo(Category::class);
     // }
 
-    public function categories(): BelongsToMany
+    // public function categories(): BelongsToMany
+    // {
+    //     return $this->belongsToMany(Category::class);
+    // }
+
+    public function categories(): MorphToMany
     {
-        return $this->belongsToMany(Category::class);
+        return $this->morphedByMany(Category::class, 'filmable');
+    }
+    public function actors(): MorphToMany
+    {
+        return $this -> morphedByMany(Actor::class, 'filmable');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Actor;
 use App\Models\Category;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -29,6 +30,7 @@ class AppServiceProvider extends ServiceProvider
         View::composer(['lessonfilms.index', 'lessonfilms.create', 'lessonfilms.edit'], function($view) 
         {
             $view->with('categories', Category::all());
+            $view->with('actors', Actor::all());
         });
     }
 
