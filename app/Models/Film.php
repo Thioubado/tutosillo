@@ -21,6 +21,22 @@ class Film extends Model
         // 'category_id',
     ];
 
+    // Pour le API
+    protected $hidden = [
+        'id',
+        'created_at',
+        'updated_at',
+    ];
+
+    protected $visible = [
+        'id',
+        'title',
+        'description',
+        'actors',
+        'categories',
+
+    ];
+
     // public function category():BelongsTo
     // {
     //     return $this->belongsTo(Category::class);

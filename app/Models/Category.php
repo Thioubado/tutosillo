@@ -32,6 +32,8 @@ class Category extends Model
 		'slug',
 	];
 
+	protected $visible = ['name'];
+
 	public function films():MorphToMany
 	{
 		return $this->morphToMany(Film::class, 'filmable');
