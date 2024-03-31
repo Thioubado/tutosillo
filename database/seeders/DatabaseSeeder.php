@@ -8,9 +8,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Film;
 use App\Models\Actor;
 use App\Models\Category;
-use App\Models\Film;
+use Laravel\Jetstream\Team;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -71,6 +72,6 @@ class DatabaseSeeder extends Seeder
 			$film -> actors() -> attach(array_slice($ids, 0, rand(1, 4)));
 		});
 
-
+		Team::factory()->count(3)->create();
 	}
 }
