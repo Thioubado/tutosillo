@@ -26,8 +26,8 @@ class TeamFactory extends Factory
 
         Team::factory()->count(5)->create();
         $u          = User::find(15);
-        $u->name    =  'Lionel';
-        $u->email   = 'hello@example.com';
+        $u->name    =  'Momo Seck';
+        $u->email   = 'momoseck@example.com';
         $u->password = bcrypt('password'); 
         $u->current_team_id = 1;
         $u->save();
