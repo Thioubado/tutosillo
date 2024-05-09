@@ -72,6 +72,6 @@ class DatabaseSeeder extends Seeder
 			$film -> actors() -> attach(array_slice($ids, 0, rand(1, 4)));
 		});
 
-		Team::factory()->count(3)->create();
+		//Team::factory()->count(3)->create();
 	}
 }
