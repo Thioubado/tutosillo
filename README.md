@@ -1,3 +1,42 @@
+
+
+# Mode d'emploi
+
+## Installation
+
+- Fork le projet
+- Clone ton projet
+
+Dans la racine du projet:
+
+Copier le .env_example en un fichier
+
+.env
+
+L'ouvrir et compléter les paramètres nécessaires pour utiliser la base de données
+
+En cli:
+
+```
+composer update
+npm i
+```
+
+Là, si vous lancez en un cli
+
+```
+npm run dev
+php artisan serv
+php artisan migratye:refresh --seed
+
+```
+
+Ouvre ton navigateur sur:
+
+http://127.0.0.1:8000
+
+---
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

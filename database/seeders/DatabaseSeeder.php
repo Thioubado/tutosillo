@@ -9,9 +9,10 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Film;
+use App\Models\Team;
+use App\Models\User;
 use App\Models\Actor;
 use App\Models\Category;
-use Laravel\Jetstream\Team;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -72,6 +73,17 @@ class DatabaseSeeder extends Seeder
 			$film -> actors() -> attach(array_slice($ids, 0, rand(1, 4)));
 		});
 
-		//Team::factory()->count(3)->create();
+		Team::factory()->count(3)->create();
+
+		$u          =new User();
+        $u->name    =  'Momo';
+        $u->email   = 'momo@example.com';
+        $u->password = bcrypt('password'); 
+        $u->current_team_id = 1;
+        $u->save();
+        
+        $t  = Team::find(1);
+        $t->user_id = 11;
+        $t->save();
 	}
 }
