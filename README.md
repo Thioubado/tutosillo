@@ -22,12 +22,12 @@ composer update
 npm i
 ```
 
-Là, si vous lancez en un cli
+Là, si tu lances en un cli
 
 ```
 npm run dev
 php artisan serv
-php artisan migratye:refresh --seed
+php artisan migrate:refresh --seed
 
 ```
 
