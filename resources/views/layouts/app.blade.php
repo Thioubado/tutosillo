@@ -18,6 +18,9 @@
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
+
+        // ICI on reçoit les éventuels messages d'infos comme ceux des évènements
+        
         <x-banner />
 
         <div class="min-h-screen bg-gray-100">
