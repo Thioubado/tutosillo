@@ -27,6 +27,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+
+        setlocale(LC_TIME, config('app.locale'));
+
         View::composer(['lessonfilms.index', 'lessonfilms.create', 'lessonfilms.edit'], function($view) 
         {
             $view->with('categories', Category::all());

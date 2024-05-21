@@ -16,6 +16,10 @@
         </style>
     </head>
     <body class="antialiased">
+        Date : {{ \Carbon\Carbon::now()->isoFormat('LL') }}
+        <hr>
+        Date : {{ \Carbon\Carbon::now()->calendar() }}
+        <hr>
         <div class="relative sm:flex sm:justify-center sm:items-center min-h-screen bg-dots-darker bg-center bg-gray-100 selection:bg-red-500 selection:text-white">
             @if (Route::has('login'))
                 <div class="sm:fixed sm:top-0 sm:right-0 p-6 text-right z-10">
