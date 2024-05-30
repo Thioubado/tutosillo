@@ -22,7 +22,7 @@ class AccueilListener
 	/**
 	 * Handle the event.
 	 */
-	public function handle(AcceuilEvent $event): void
+	public function handle(): void
 	{
 		DB::table('visits')->insert([
 			'ip'         => request()->ip(),
