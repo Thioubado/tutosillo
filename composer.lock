@@ -1221,6 +1221,7 @@
         },
         {
             "name": "laravel/framework",
+<<<<<<< HEAD
             "version": "v11.10.0",
             "source": {
                 "type": "git",
@@ -1231,6 +1232,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/99b4255194912044b75ab72329f8c19e6345720e",
                 "reference": "99b4255194912044b75ab72329f8c19e6345720e",
+=======
+            "version": "v11.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "ceb892a25817c888ef3df4d1a2af9cac53978300"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/ceb892a25817c888ef3df4d1a2af9cac53978300",
+                "reference": "ceb892a25817c888ef3df4d1a2af9cac53978300",
+>>>>>>> devGc7
                 "shasum": ""
             },
             "require": {
@@ -1422,6 +1435,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
+<<<<<<< HEAD
             "time": "2024-06-04T13:45:55+00:00"
         },
         {
@@ -1436,6 +1450,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/jetstream/zipball/cdcd6fad35a369080f37420cbcc0124756af9710",
                 "reference": "cdcd6fad35a369080f37420cbcc0124756af9710",
+=======
+            "time": "2024-05-21T17:57:45+00:00"
+        },
+        {
+            "name": "laravel/jetstream",
+            "version": "v5.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/jetstream.git",
+                "reference": "30bde139ca1c41d10a58c67f8daa2e8cd3a0be93"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/jetstream/zipball/30bde139ca1c41d10a58c67f8daa2e8cd3a0be93",
+                "reference": "30bde139ca1c41d10a58c67f8daa2e8cd3a0be93",
+>>>>>>> devGc7
                 "shasum": ""
             },
             "require": {
@@ -1489,6 +1519,7 @@
                 "issues": "https://github.com/laravel/jetstream/issues",
                 "source": "https://github.com/laravel/jetstream"
             },
+<<<<<<< HEAD
             "time": "2024-05-30T14:23:31+00:00"
         },
         {
@@ -1503,6 +1534,22 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/prompts/zipball/9bc4df7c699b0452c6b815e64a2d84b6d7f99400",
                 "reference": "9bc4df7c699b0452c6b815e64a2d84b6d7f99400",
+=======
+            "time": "2024-05-13T17:01:27+00:00"
+        },
+        {
+            "name": "laravel/prompts",
+            "version": "v0.1.22",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/prompts.git",
+                "reference": "37f94de71758dbfbccc9d299b0e5eb76e02a40f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/prompts/zipball/37f94de71758dbfbccc9d299b0e5eb76e02a40f5",
+                "reference": "37f94de71758dbfbccc9d299b0e5eb76e02a40f5",
+>>>>>>> devGc7
                 "shasum": ""
             },
             "require": {
@@ -1545,9 +1592,15 @@
             "description": "Add beautiful and user-friendly forms to your command-line applications.",
             "support": {
                 "issues": "https://github.com/laravel/prompts/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/laravel/prompts/tree/v0.1.23"
             },
             "time": "2024-05-27T13:53:20+00:00"
+=======
+                "source": "https://github.com/laravel/prompts/tree/v0.1.22"
+            },
+            "time": "2024-05-10T19:22:18+00:00"
+>>>>>>> devGc7
         },
         {
             "name": "laravel/sanctum",
@@ -6930,6 +6983,7 @@
         },
         {
             "name": "laravel-lang/attributes",
+<<<<<<< HEAD
             "version": "2.10.7",
             "source": {
                 "type": "git",
@@ -6940,6 +6994,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/Laravel-Lang/attributes/zipball/6cbfd302951ce4dd5d4f79dbdc1d04f222fabdbb",
                 "reference": "6cbfd302951ce4dd5d4f79dbdc1d04f222fabdbb",
+=======
+            "version": "2.10.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Lang/attributes.git",
+                "reference": "01d92b752802062c533efc2e49d608702a8644f4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Lang/attributes/zipball/01d92b752802062c533efc2e49d608702a8644f4",
+                "reference": "01d92b752802062c533efc2e49d608702a8644f4",
+>>>>>>> devGc7
                 "shasum": ""
             },
             "require": {
@@ -6993,9 +7059,15 @@
             ],
             "support": {
                 "issues": "https://github.com/Laravel-Lang/attributes/issues",
+<<<<<<< HEAD
                 "source": "https://github.com/Laravel-Lang/attributes/tree/2.10.7"
             },
             "time": "2024-05-30T16:40:01+00:00"
+=======
+                "source": "https://github.com/Laravel-Lang/attributes/tree/2.10.5"
+            },
+            "time": "2024-05-13T15:52:47+00:00"
+>>>>>>> devGc7
         },
         {
             "name": "laravel-lang/common",
