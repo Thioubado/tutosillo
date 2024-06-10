@@ -55,7 +55,17 @@ Route::get('photo', [PhotoController::class, 'create']);
 Route::post('photo', [PhotoController::class, 'store']);
 
 // Creation de route avec le controller
-Route::get('/', [WelcomeController::class, 'index']);
+// commentaire de la route ci-dessous pour les besoins d'un test
+// Route::get('/', [WelcomeController::class, 'index']);
+
+// Route::get('/', function () {
+//   return 'coucou';
+// });
+
+Route::get('/', function () {
+  return view('welcome')->with('message', 'Vous y êtes !');
+});
+
 
 Route::get('article/{n}', [ArticleController::class, 'show'])
 	->where('n', '[0-9]{2}'); // For only have article from 0 to 99
