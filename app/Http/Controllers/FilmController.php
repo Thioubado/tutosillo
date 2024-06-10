@@ -3,21 +3,42 @@
 namespace App\Http\Controllers;
 
 use App\Models\Film;
+use App\Models\Category;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
 use App\Http\Requests\FilmRequest;
+use App\Http\Controllers\Controller;
+use App\Models\Actor;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Support\Facades\Route;
 
 class FilmController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($slug = null): View
     {
-        //
-        $films = Film::withTrashed() -> oldest('title') -> paginate(5);
-        return view('lessonfilms.index', compact('films'));
+        $model = null;
+
+        if($slug)
+        {
+            if(Route::currentRouteName() == 'films.category')
+            {
+                $model = new Category;
+            }else{
+                $model = new Actor;
+            }
+
+        }
+
+        $query = $model ? $model::whereSlug($slug)->firstOrFail()->films() : Film::query();
+        $films = $query->withTrashed()->oldest('title')->paginate(5);
+        //$categories = Category::all();
+        //return view('lessonfilms.index', compact('films', 'categories', 'slug'));
+        //cette partie ci-dessous est pour la view composer
+        return view('lessonfilms.index', compact('films', 'slug'));
+
     }
 
     /**
@@ -26,6 +47,9 @@ class FilmController extends Controller
     public function create()
     {
         //
+        //$categories = Category::all();
+        //return view('lessonfilms.create', compact('categories'));
+        //cette partie ci-dessous est pour la view composer
         return view('lessonfilms.create');
     }
 
@@ -35,7 +59,11 @@ class FilmController extends Controller
     public function store(FilmRequest $filmRequest) : RedirectResponse
     {
         //
-        Film::create($filmRequest->all());
+        $film = Film::create($filmRequest->all());
+
+        $film->categories()->attach($filmRequest->cats);
+        $film->actors()->attach($filmRequest->acts);
+
         return redirect()->route('films.index')->with('info', 'Le film a bien été créé');
     }
 
@@ -45,6 +73,9 @@ class FilmController extends Controller
     public function show(Film $film)
     {
         //
+        //$category = $film ->category->name;
+        // eager loading
+       // $film -> with('categories') -> get();
         return view('lessonfilms.show', compact('film'));
     }
 
@@ -64,6 +95,10 @@ class FilmController extends Controller
     {
         //
         $film->update($filmRequest->all());
+
+        $film->categories()->sync($filmRequest->cats);
+        $film->actors()->sync($filmRequest->acts);
+        
         return redirect()->route('films.index')->with('info', 'Le film a bien été modifié');
 
     }

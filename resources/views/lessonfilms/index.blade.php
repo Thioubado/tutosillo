@@ -10,6 +10,9 @@
         .is-info {
             margin: 0.3em;
         }
+        select, .is-info {
+    margin: 0.3em;
+}
     </style>
 @endsection
 
@@ -21,7 +24,28 @@
     @endif
     <div class="card">
         <header class="card-header">
+
             <p class="card-header-title">Films</p>
+            
+            <div class="select">
+                <select onchange="window.location.href = this.value">
+                    <option value="{{ route('films.index') }}" @unless($slug) selected @endunless>Toutes catégories</option>
+                    @foreach($categories as $category)
+                        <option value="{{ route('films.category', $category->slug) }}" {{ $slug == $category->slug ? 'selected' : '' }}>{{ $category->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="select">
+                <select onchange="window.location.href = this.value">
+                    <option value="{{ route('films.index') }}" @unless ($slug) selected @endunless>Tous les acteurs </option>
+                    @foreach ($actors as $actor)
+                        <option value="{{ route('films.actor', $actor->slug)}}" {{ $slug == $actor->slug ? 'selected' : ''}}>{{ $actor->name }}</option>
+                        
+                    @endforeach
+                </select>
+            </div>
+
             <a class="button is-info" href="{{ route('films.create') }}">Créer un film</a>
         </header>
         <div class="card-content">
@@ -36,35 +60,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($films as $film)
-    <tr @if($film->deleted_at) class="has-background-grey-lighter" @endif>
-        <td><strong>{{ $film->title }}</strong></td>
-            <td>
-                @if($film->deleted_at)
-                    <form action="{{ route('films.restore', $film->id) }}" method="post">
-                        @csrf
-                        @method('PUT')
-                        <button class="button is-primary" type="submit">Restaurer</button>
-                    </form>
-                @else
-                    <a class="button is-primary" href="{{ route('films.show', $film->id) }}">Voir</a>
-                @endif
-            </td>
-            <td>
-                @if($film->deleted_at)
-                @else
-                    <a class="button is-warning" href="{{ route('films.edit', $film->id) }}">Modifier</a>
-                @endif
-            </td>
-        <td>
-            <form action="{{ route($film->deleted_at? 'films.force.destroy' : 'films.destroy', $film->id) }}" method="post">
-                @csrf
-                @method('DELETE')
-                <button class="button is-danger" type="submit">Supprimer</button>
-            </form>
-        </td>
-    </tr>
-@endforeach
+
                     </tbody>
                 </table>
             </div>
