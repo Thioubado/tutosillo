@@ -12,7 +12,7 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
-
+use App\Livewire\MonComposant;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +23,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
  */
+
+
+
+ Route::get('composant', MonComposant::class);
 
  // ajout des routes de suppression
  Route::controller(FilmController::class)->group(function(){
