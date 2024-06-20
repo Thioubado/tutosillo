@@ -67,8 +67,12 @@ Route::post('photo', [PhotoController::class, 'store']);
 // });
 
 Route::get('/', function () {
-  return view('welcome')->with('message', 'Vous y êtes !');
+  return view('welcome');
 });
+
+// Route::get('/', function () {
+//   return view('welcome')->with('message', 'Vous y êtes !');
+// });
 
 
 Route::get('article/{n}', [ArticleController::class, 'show'])
