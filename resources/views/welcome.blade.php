@@ -7,6 +7,10 @@
     <title>Livewire basics</title>
 </head>
 <body>
+    <h2>Lesson 1: Installation</h2>
     <livewire:hello-world />
+    <hr>
+    <h2>Lesson 2: Actions</h2>
+    <livewire:counter />
 </body>
 </html>
