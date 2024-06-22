@@ -12,5 +12,8 @@
     <hr>
     <h2>Lesson 2: Actions</h2>
     <livewire:counter />
+    <hr>
+    <h2>Lesson 3: Properties</h2>
+    <livewire:todos/>
 </body>
 </html>
