@@ -14,6 +14,7 @@ use App\Http\Controllers\WelcomeController;
 use App\Livewire\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\MonComposant;
+use App\Livewire\ShowPosts;
 use App\Livewire\Todos;
 
 /*
@@ -71,6 +72,7 @@ Route::post('photo', [PhotoController::class, 'store']);
 
 Route::get('/', Todos::class);
 Route::get('counter', Counter::class);
+Route::get('posts', ShowPosts::class);
 
 // Route::get('/', function () {
 //   return view('welcome')->with('message', 'Vous y êtes !');
