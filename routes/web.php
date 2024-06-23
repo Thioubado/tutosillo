@@ -11,8 +11,11 @@ use App\Http\Controllers\FilmController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\WelcomeController;
+use App\Livewire\Counter;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\MonComposant;
+use App\Livewire\Todos;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -66,9 +69,8 @@ Route::post('photo', [PhotoController::class, 'store']);
 //   return 'coucou';
 // });
 
-Route::get('/', function () {
-  return view('welcome');
-});
+Route::get('/', Todos::class);
+Route::get('counter', Counter::class);
 
 // Route::get('/', function () {
 //   return view('welcome')->with('message', 'Vous y êtes !');
